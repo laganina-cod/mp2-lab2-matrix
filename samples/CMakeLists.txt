@@ -1,6 +1,9 @@
 # Get all cpp-files in the current directory
 file(GLOB samples_list RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} *.cpp)
+file(GLOB hdrs "*.h*" "${MP2_INCLUDE}/*.h*")
 
+add_library(${target} STATIC ${srcs} ${hdrs})
+#target_link_libraries(${target} ${LIBRARY_DEPS})
 
 foreach(sample_filename ${samples_list})
   # Get file name without extension
